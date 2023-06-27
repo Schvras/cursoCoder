@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios HTML</title>
+
+    <style>
+        #conteudo{
+            padding: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercícios</h1>
+    </header>
+    <nav>
+        <a href="exercicios/texto1.html" nav-link>01 - Texto</a> | 
+        <a href="exercicios/texto2.html" nav-link>02 - Texto</a> | 
+        <a href="exercicios/listas.html" nav-link>Listas</a> | 
+        <a href="exercicios/listaAninhada.html" nav-link>Lista aninhada</a> | 
+        <a href="exercicios/links.html" nav-link>Links</a> | 
+        <a href="exercicios/tabela.html" nav-link>Tabela</a> | 
+        <a href="exercicios/form/form.html" nav-link>Formulário</a>
+    </nav>
+    <section id="conteudo"></section>
+    <footer>
+        Curso de Web Moderno
+    </footer>
+    <script>
+        const conteudo = document.getElementById('conteudo')
+
+        if(conteudo){
+            document.querySelectorAll('[nav-link]').forEach( link =>{
+
+                link.onclick = e =>{
+                    e.preventDefault()
+
+                    fetch(link.href)
+                        .then( resp => resp.text())
+                        .then( html => conteudo.innerHTML = html)
+                        .catch( err => console.log(err))
+                }
+            })
+        }
+    </script>
+</body>
+</html>

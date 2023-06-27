@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <p>Texto Inicial</p>
+    </div>
+    <script>
+        const div = document.querySelector('div')
+        
+        // Substitui conteudo do elemento
+        div.innerHTML = 'Texto alterado'
+
+        //Substitui todo o elemento
+        //div.outerHTML = 'Elemento alterado'
+
+        // Manipulando elemento com funções adjacentes
+        div.insertAdjacentHTML('beforebegin','<p>Antes de começar a rendenizar</p>')
+        div.insertAdjacentHTML("afterbegin",'<p> Depois de começar a rendenizar</p>')
+        div.insertAdjacentHTML("beforeend",'<p>Antes de terminar de rendenizar</p>')
+        div.insertAdjacentHTML('afterend','<p>Depois que terminar de rendenizar</p>')
+
+        // Somente texto de um elemento
+        console.log(div.innerText)
+    </script>
+</body>
+
+</html>
