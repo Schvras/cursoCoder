@@ -9,9 +9,12 @@ export default function Inicio(){
                 flexWrap: 'wrap',
                 height: '100vh'
             }}>
-            <Navegador texto="Estiloso" destino="estiloso"/>
+            <Navegador texto="Estiloso" destino="estiloso" cor="red"/>
             <Navegador texto="Exemplo" destino="exemplo"/>
             <Navegador texto="JSX" destino="jsx"/>
+            <Navegador texto="Navegação #01" destino="/navegacao"/>
+            <Navegador texto="Navegação #02" destino="/cliente/sc/123"/>
+            <Navegador texto="Estado" destino="estado"/>
         </div>
     )
 }
