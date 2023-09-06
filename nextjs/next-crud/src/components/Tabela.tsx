@@ -9,20 +9,30 @@ interface TabelaProps{
 
 export default function Tabela (props: TabelaProps){
 
-    function renderizarAcoesCliente(cliente: Cliente){
+    const exibirAcoes = props.clienteSelecionado || props.clienteExcluido
+
+    function renderizarAcoes(cliente: Cliente){
         return (
-            <>
+            <td className="flex p-2 justify-center">
                 {
                     props.clienteSelecionado ? 
-                        <button className="flex justify-center items-center text-green-500 p-2 rounded-full hover:bg-purple-50">{IconeEdicao}</button>
+                        <button 
+                            className="flex justify-center items-center text-green-500 p-2 rounded-full hover:bg-purple-50"
+                            onClick={() => props.clienteSelecionado?.(cliente)}
+                            >{IconeEdicao}
+                        </button>
                         : false
                 }
                 {
                     props.clienteExcluido ? 
-                        <button className="flex justify-center items-center text-red-700 p-2 rounded-full hover:bg-purple-50">{IconeLixo}</button>
+                        <button 
+                            className="flex justify-center items-center text-red-700 p-2 rounded-full hover:bg-purple-50"
+                            onClick={() => props.clienteExcluido?.(cliente)}
+                            >{IconeLixo}
+                        </button>
                         : false
                 }
-            </>
+            </td>
         )
     }
 
@@ -32,7 +42,11 @@ export default function Tabela (props: TabelaProps){
                 <th className="text-left p-2">Id</th>
                 <th className="text-left p-2">Nome</th>
                 <th className="text-left p-2">Idade</th>
-                <th className="text-left p-2">Ações</th>
+                {
+                    exibirAcoes 
+                        ? <th className="p-2">Ações</th>
+                        : false
+                }
             </tr>
         )
     }
@@ -44,7 +58,11 @@ export default function Tabela (props: TabelaProps){
                     <td className="text-left p-2">{cliente.id}</td>
                     <td className="text-left p-2">{cliente.nome}</td>
                     <td className="text-left p-2">{cliente.idade}</td>
-                    <td className="flex p-2">{renderizarAcoesCliente(Cliente)}</td>
+                    {
+                        exibirAcoes 
+                            ? renderizarAcoes(cliente)
+                            : false
+                    }
                 </tr>
             )
         })
