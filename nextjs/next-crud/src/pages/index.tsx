@@ -6,14 +6,14 @@ import Botao from "../components/Botao";
 export default function Home() {
 
   const clientes = [
-    new Cliente('Jean',24,'jshfjkashkjfkg'),
-    new Cliente('Bruna',19,'jshfjkashkjfkF')
+    new Cliente('Jean', 24, 'jshfjkashkjfkg'),
+    new Cliente('Bruna', 19, 'jshfjkashkjfkF')
   ]
 
-  function clienteSelecionado (cliente: Cliente){
+  function clienteSelecionado(cliente: Cliente) {
     console.log(cliente.nome)
   }
-  function clienteExcluido (cliente: Cliente){
+  function clienteExcluido(cliente: Cliente) {
     console.log(cliente.nome)
   }
 
@@ -23,7 +23,7 @@ export default function Home() {
         <div className="flex justify-end">
           <Botao className="mb-4" cor="green">Novo Cliente</Botao>
         </div>
-        <Tabela clientes={clientes} clienteSelecionado={clienteSelecionado} clienteExcluido={clienteExcluido}/>
+        <Tabela clientes={clientes} clienteSelecionado={clienteSelecionado} clienteExcluido={clienteExcluido} />
       </Layout>
     </div>
   )
