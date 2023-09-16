@@ -19,6 +19,7 @@ export default function Home() {
     console.log(cliente.nome)
   }
 
+  const [cliente, setCliente] = useState(new Cliente)
   const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela')
 
   return (
@@ -27,11 +28,11 @@ export default function Home() {
         { visivel === 'tabela' ?
           <>
             <div className="flex justify-end">
-              <Botao className="mb-4" cor="green">Novo Cliente</Botao>
+              <Botao className="mb-4" cor="green" click={() => setVisivel('form')}>Novo Cliente</Botao>
             </div>
             <Tabela clientes={clientes} clienteSelecionado={clienteSelecionado} clienteExcluido={clienteExcluido} />
           </>
-          : <Formulario cliente={new Cliente('',0)}/>
+          : <Formulario cliente={cliente}/>
         }
       </Layout>
     </div>
