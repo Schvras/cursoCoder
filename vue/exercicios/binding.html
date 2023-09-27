@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Binding</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <p>{{ link }}</p>
+        <p><a href="{{link}}"></a>Canal Youtube</p> <!-- Isso não funciona -->
+        <p><a v-bind:href="link">Canal Youtube</a></p> <!-- Isso funciona -->
+        <p><a :href="link">Canal Youtube</a></p> <!-- Isso também funciona -->
+        <p>
+            <input type="text" v-model="nome"><br>
+            <span>Nome: {{nome}}</span>
+        </p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                nome: 'Bruna',
+                link: 'https://youtube.com/cod3rcursos'
+            },
+            watch:{
+                nome(novoValor){
+                    console.log(novoValor)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

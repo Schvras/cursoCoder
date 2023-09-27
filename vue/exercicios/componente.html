@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Componente</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <saudacao nome="Jean" ></saudacao>
+        <contador></contador>
+        <contador></contador>
+    </div>
+    <script>
+        Vue.component('saudacao', {
+            props: ['nome'],
+            data: function(){
+                return {
+                    saudacaoAtual: 'Bom dia'
+                }
+            },
+            template: `
+                <div>{{saudacaoAtual}} {{nome}}!</div>
+            `
+        })
+
+        Vue.component('contador', {
+            data: function(){
+                return {
+                    valor: 0
+                }
+            },
+            methods: {
+                somar(){
+                    this.valor++
+                }
+            },
+            template: `
+                <div>
+                    <span>Valor: {{valor}}</span>
+                    <p><button @click="somar">+1</button></p>
+                </div>
+            `
+        })
+
+        new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+</html>
