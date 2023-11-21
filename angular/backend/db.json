@@ -1,24 +1,97 @@
 {
-  "products": [
+  "me": {
+    "name": "Jean Henrique Schvartz",
+    "birth_date": "20201-02-11",
+    "me_declaration":"Olá, sou uma pessoa que está sempre em busca de conhecimento, muito curioso.",
+    "image_src": "me.png",
+    "color": "#00f4"
+  },
+  "experiences":[
     {
-      "id": 1,
-      "name": "Caneta BIC Preta",
-      "price": 5.89
+      "id": "malhas_jn",
+      "organization": "Malhas JN",
+      "actual_work": false,
+      "date_start": "2019-03-01",
+      "date_end": "2021-12-01",
+      "task":"Auxiliar Contábil",
+      "description":"Criação de notas fiscais de envio, retorno e venda de mercadoria. Também com criação de controles.",
+      "image_src": "malhas_jn.png"
     },
     {
-      "id": 2,
-      "name": "Notebook Mac Pro",
-      "price": 12000.89
+      "id": "siscobra_sistemas",
+      "organization": "Siscobra Sistemas",
+      "actual_work": true,
+      "date_start": "2019-03-01",
+      "date_end": "2021-12-01",
+      "task":"Desenvolvedor Web Pleno",
+      "description":"Análise e desenvolvimento de telas, integrações, resolução de problemas e mnelhorias.",
+      "image_src": "siscobra_sistemas.png"
+    }
+  ],
+  "skills":[
+    {
+      "id": "java_script",
+      "name": "Java Script",
+      "time": 1.3,
+      "unit": "year",
+      "image_src": "java_script.png"
     },
     {
-      "id": 3,
-      "name": "Sansung S20+ Ultra",
-      "price": "7520.89"
+      "id": "html",
+      "name": "HTML",
+      "time": 1.3,
+      "unit": "year",
+      "image_src": "html.png"
     },
     {
-      "name": "Lapis Preto Básico",
-      "price": "1.50",
-      "id": 4
+      "id": "css",
+      "name": "CSS",
+      "time": 1.3,
+      "unit": "year",
+      "image_src": "css.png"
+    },
+    {
+      "id": "postgre_sql",
+      "name": "Postgre SQL",
+      "time": 1.3,
+      "unit": "year",
+      "image_src": "postgre_sql.png"
+    },
+    {
+      "id": "genexus",
+      "name": "Genexus",
+      "time": 1.3,
+      "unit": "year",
+      "image_src": "genexus.png"
+    },
+    {
+      "id": "c++",
+      "name": "C++",
+      "time": 5,
+      "unit": "month",
+      "image_src": "c++.png"
+    },
+    {
+      "id": "java",
+      "name": "Java",
+      "time": 1,
+      "unit": "year",
+      "image_src": "java.png"
+    }
+  ],
+  "projects":[
+    {
+      "id": "automacao_prensa_de_ilhos",
+      "name": "Automatização Prensa de Ilhós",
+      "description": "Consiste em uma máquina para pregar ilhós que mitiga o risco de uma pessoa perder um ou mais dedos debaixo de uma máquina.",
+      "image_src": "automatizacao_prensa.jpg",
+      "skills": ["c++"],
+      "external_link": [
+        {
+          "name": "Projeto",
+          "link": "https://www.google.com"
+        }
+      ]
     }
   ]
 }
