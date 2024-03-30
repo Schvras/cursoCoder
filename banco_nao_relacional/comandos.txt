@@ -1,0 +1,15 @@
+db.empresas.find().pretty()
+
+db.empresas.insertOne(
+    {
+        nome: "Bradesco",
+        estadoId: ObjectId('65c189e7ac4e62c6adcb3a3f')
+    }
+)
+
+db.empresas.insertOne(
+    {
+        nome: "Viacred",
+        cidadeId: ObjectId('65c189e7ac4e62c6adcb3a40')
+    }
+)

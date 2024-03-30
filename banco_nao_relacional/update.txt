@@ -1,0 +1,19 @@
+db.estados.find({sigla: "AL"}).pretty()
+
+-- $set irá setar, caso já possua lago, será substituido
+db.estados.update(
+    {sigla: "AL"},
+    {$set: {cidades: [{nome: "Sergipe"}]}}
+)
+
+-- $push irá adicionar, caso não tenha será criado e caso tenha será adicionado no final
+db.estados.update(
+    {sigla: "SP"}, 
+    {$push: {cidades: [{nome: "Santos", populacao: 433000}]}}
+)
+
+-- Filtra por existencia de atributo
+db.estados.find(
+    {populacao: { $exists: true} },
+    {_id: 0, nome: 1}
+).pretty()

@@ -1,0 +1,8 @@
+-- Contabilizar documentos na colection
+db.estados.countDocuments()
+
+-- Remover um documento
+db.estados.findOneAndDelete({sigla: "AL"})
+
+-- Remover usando operador de menor
+db.estados.findOneAndDelete({populacao: {$lt: 2000000}})

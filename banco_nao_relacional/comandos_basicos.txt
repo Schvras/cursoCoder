@@ -1,0 +1,63 @@
+mongod                                      -- Inicia o mongo
+mongosh                                     -- Inicia o terminal do mongo
+show dbs                                    -- Lista bancos de dados
+use [db-name]                               -- Define o banco de dados que será executado os comandos
+db.createCollection('[collection-name]')    -- Cria uma coleção no banco de dados atual, é case sensitive
+show collections                            -- Lista as colections atuais
+db.[collection-name].drop()                 -- Exclui a collection
+db.[collection-name].insertOne([obj])       -- Insere registro na collection
+db.[collection-name].updateOne([obj])       -- Atualiza registro na collection
+db.[collection-name].find().pretty()        -- Consulta collection
+db.help()                                   -- Ajudas com banco de dados
+
+db.[collection-name].insertOne([obj])       -- Insere registro na collection
+
+db.estados.insert({
+    nome: "São Paulo", 
+    sigla: "SP", 
+    regiao: "Sudeste",
+    cidades: [
+        {                                                                    
+            _id: ObjectId() ,
+            nome: "Campinas", 
+            area: 795, 
+            populacao: 32323232
+        },                                                                             
+        {                                                                              
+    _       id: ObjectId(), 
+            nome: "Guarulhos",
+            populacao: 31323121
+        }
+    ]                                                                             
+})
+
+db.estados.insertOne({
+    nome: "Rio de Janeiro", 
+    sigla: "RJ", 
+    regiao: "Sudeste",
+    cidades: [
+        {                                                                    
+            _id: ObjectId() ,
+            nome: "Niterói", 
+            area: 133.9, 
+            populacao: 487562
+        }
+    ]                                                                             
+}) 
+
+-- Filtro de busca $or
+db.estados.find({$or: [{sigla: "AC"},{sigla: "SP"}]}).pretty()
+
+-- Filtro de busca $exists
+db.estados.find({cidades: {$exists: true}}).pretty()
+
+-- Skip, define o indice inicial da busca
+db.estados.find().skip(1).pretty()
+
+-- Limit, define limite de itens da busca
+db.estados.find().limit(1).pretty()
+
+-- Segundo parâmetro define quais campos devem ser retornados na busca
+db.estados.find({sigla: "SP"}, {nome: 1, sigla: 1, _id: 0}).pretty()
+
+db.estados.find({sigla: "SP"}, {"cidades.nome": 1, _id: 0}).pretty()

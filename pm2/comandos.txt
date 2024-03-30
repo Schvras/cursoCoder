@@ -1,0 +1,23 @@
+-- Instala somente na aplicação
+npm i --save pm2
+
+-- Instala de forma global
+npm i -g pm2
+
+-- Monitor de aplicações
+pm2 monit
+
+-- Status reduzido das aplicações
+pm2 status
+
+-- Dados da aplicação
+pm2 show [id]
+
+-- Restart da aplicação
+pm2 restart [id] ou [nome]
+
+-- Parar aplicação
+pm2 stop [id] ou [nome]
+
+-- Parar pm2
+pm2 kill
