@@ -54,8 +54,9 @@ module.exports = app => {
         const count = parseInt(result.count)
 
         app.db('articles')
-            .select('id','name','description')
-            .limit(limit).offset(page * limit - limit)
+            .select('id','name','description', 'categoryId', 'userId')
+            .limit(limit)
+            .offset(page * limit - limit)
             .then(articles => res.json({ data: articles, count, limit }))
             .catch(err => res.status(500).send(err))
     }
@@ -77,6 +78,7 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
     }
 
+    const limit_by_category = 4 // Usado para paginação
     const getByCategory = async (req, res) => {
         try {
             existsOrError(req.params.id, 'Id não informado')
@@ -90,8 +92,8 @@ module.exports = app => {
         const ids = categories.rows.map( category => category.id)
 
         app.db({a: 'articles', u: 'users'})
-            .select('a.id', 'a.name', 'a.description', 'a.imageUrl', {author: 'u.name'})
-            .limit(limit).offset(page * limit - limit)
+            .select('a.id', 'a.name', 'a.description', {author: 'u.name'})
+            .limit(limit_by_category).offset(page * limit_by_category - limit_by_category)
             .whereRaw('?? = ??', ['u.id', 'a.userId'])
             .whereIn('categoryId',ids)
             .orderBy('a.id','desc')
